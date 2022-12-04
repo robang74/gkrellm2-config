@@ -1,0 +1,59 @@
+author = "Matthew Bogosian <mattb@columbia.edu>"
+
+theme_alternatives = 5
+#Style *.alt_textcolor = #b89b70 #36454f shadow
+#Style *.textcolor = #9be6af #36454f shadow
+
+##########################################################################
+# Font settings
+##########################################################################
+
+large_font = "-schumacher-clean-medium-r-normal-*-*-140-*-*-c-*-iso646.1991-irv"
+normal_font = "-schumacher-clean-medium-r-normal-*-*-120-*-*-c-*-iso646.1991-irv"
+small_font = "-schumacher-clean-medium-r-normal-*-*-100-*-*-c-*-iso646.1991-irv"
+
+##########################################################################
+# Chart settings
+##########################################################################
+
+bg_grid_mode = 1
+StyleChart *.alt_textcolor = #fcfcfc #36454f shadow
+StyleChart *.border = 0,0,0,0
+StyleChart *.margins = 2,2,3,2
+StyleChart *.textcolor = #ececec #36454f shadow
+StyleChart *.transparency = 2                   # data_out behind bg_chart
+
+##########################################################################
+# Panel settings
+##########################################################################
+
+StylePanel *.alt_textcolor = #fcfcfc #36454f shadow
+StylePanel *.border = 0,0,2,2
+StylePanel *.label_position = center
+StylePanel *.margins = 2,2,3,2
+StylePanel *.textcolor = #ececec #36454f shadow
+StylePanel *.transparency = 2                   # threshold @ 50%
+
+##########################################################################
+# Meter settings
+##########################################################################
+
+StyleMeter *.alt_textcolor = #fcfcfc #36454f shadow
+StyleMeter *.border = 0,0,2,2
+StyleMeter *.label_position = 0
+StyleMeter *.margins = 2,2,3,2
+StyleMeter *.textcolor = #ececec #36454f shadow
+StyleMeter *.transparency = 2                   # threshold @ 50%
+
+##########################################################################
+# Krell-specific settings
+##########################################################################
+
+StylePanel net.label_position = 0
+rx_led_x = -11
+rx_led_y = 4
+tx_led_x = -2
+tx_led_y = 4
+
+StyleMeter mem.label_position = 100
+StyleMeter swap.label_position = 100

@@ -1,0 +1,61 @@
+#!/bin/bash
+
+########################################################################
+#      File: change_colors
+#   Creator: Matthew Bogosian <mattb@columbia.edu>
+# Copyright: (c)2002, Matthew Bogosian. All rights reserved.
+#        ID: $Id: change_colors,v 1.1 2002/10/21 11:08:41 matt Exp $
+# Description: Shell script to change the colors of this gkrellm theme.
+########################################################################
+
+########################################################################
+# =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= Main =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= #
+########################################################################
+
+# Initialization
+PROG_NAME="$(basename "${0}")"
+PROG_DIR="$(cd "$(dirname "${0}")" && pwd)"
+NO_ERR=0
+ERR_BAD_CMD=-1
+MIN_NUM_ARGS=2
+MAX_NUM_ARGS=3
+ERR_STR_USAGE="Usage: ${PROG_NAME} MAIN_COLOR CHART_COLOR [THEME_ALT]"
+EXT=.png
+
+if [ "${#}" -lt "${MIN_NUM_ARGS}" ] \
+    || [ "${#}" -gt "${MAX_NUM_ARGS}" ]
+then
+	echo "${ERR_STR_USAGE}" 1>&2
+
+	exit "${ERR_BAD_CMD}"
+fi
+
+if ! cd "${PROG_DIR}"
+then
+	echo "${PROG_NAME}: can't change find theme dir: '${PROG_DIR}'" 1>&2
+
+	exit "${ERR_BAD_CMD}"
+fi
+
+MAIN_COLOR="${1}"
+CHART_COLOR="${2}"
+THEME_ALT="${3}"
+
+[ ! -z "${THEME_ALT}" ] \
+    && THEME_ALT="_${THEME_ALT}"
+
+for item in bg_{meter,panel} frame_{bottom,left,top,right}
+do
+    [ -L "${item}${THEME_ALT}${EXT}" ] \
+        && rm "${item}${THEME_ALT}${EXT}"
+
+    ln -s "${MAIN_COLOR}/${item}${EXT}" "${item}${THEME_ALT}${EXT}"
+done
+
+for item in bg_{chart,grid}
+do
+    [ -L "${item}${THEME_ALT}${EXT}" ] \
+        && rm "${item}${THEME_ALT}${EXT}"
+
+    ln -s "${CHART_COLOR}/${item}${EXT}" "${item}${THEME_ALT}${EXT}"
+done

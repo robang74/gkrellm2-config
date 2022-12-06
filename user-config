@@ -31,7 +31,7 @@ clock_cal cal_options 1
 clock_cal cal_format %a <span foreground="$A"><big><big>%e</big></big></span> %b
 clock_cal clock_format %l:%M <span foreground="$A"><small>:%S</small></span>
 cpufreq khz_max 3600000
-cpufreq gov_enable 1
+cpufreq gov_enable 0
 cpufreq slider_userspace_enable 0
 cpufreq slider_enable 0
 cpufreq controls_coupled 1
@@ -79,7 +79,7 @@ proc text_format \w88\a$p\f procs\n\e$u\f users
 proc chart_config 80 100 5 0 0 0 : 1 0 0 0 500 : 0 0 0 0 500
 disk assign_method 2
 disk device Disk 0 0 0 1 1 0 0 Disk
-disk chart_config Disk 80 30000000 0 1 0 0 : 0 0 0 0 500 : 0 0 0 0 500
+disk chart_config Disk 80 100000000 0 1 0 0 : 0 0 0 0 500 : 0 0 0 0 500
 disk device nvme0n1 0 0 28 0 1 -1 0 nvme0n1
 disk device nvme0n1p1 0 0 28 0 1 1 0 nvme0n1p1
 disk device nvme0n1p2 0 0 28 0 1 2 0 nvme0n1p2
@@ -91,10 +91,12 @@ net chart_config docker0 40 10000 0 1 0 0 : 0 0 0 0 500 : 0 0 0 0 500
 net enables enp0s31f6 1 1 0
 net chart_config enp0s31f6 40 10000 0 1 0 0 : 0 0 0 0 500 : 0 0 0 0 500
 net enables lo 0 1 0
+net enables vethffb6ecd 0 1 0
+net chart_config vethffb6ecd 40 10000 0 1 0 0 : 0 0 0 0 500 : 0 0 0 0 500
 net enables virbr0 0 1 0
 net chart_config virbr0 40 10000 0 1 0 0 : 0 0 0 0 500 : 0 0 0 0 500
 net enables wlp59s0 1 1 0
-net chart_config wlp59s0 80 300 5 1 0 0 : 0 0 0 0 500 : 0 1 0 0 500
+net chart_config wlp59s0 80 5000 5 1 0 0 : 0 0 0 0 500 : 0 1 0 0 500
 net timer_enabled 0
 net timer_seconds 1
 net timer_iface none

@@ -13,9 +13,11 @@ wget $durl -O ~/Downloads/gkrellm2-config-main.zip
 unzip -o ~/Downloads/gkrellm2-config-main.zip -d /tmp
 cp -arf /tmp/gkrellm2-config-main ~/.gkrellm2
 
-sudo apt install -y $(cat ~/.gkrellm2/thinkpad.lst) 
+list=$(cat ~/.gkrellm2/thinkpad.lst)
  XOR
-sudo apt install -y $(cat ~/.gkrellm2/pcdesktop.lst)
+list=$(cat ~/.gkrellm2/pcdesktop.lst)
+
+for i in $list; do sudo apt install -y $i; done
 
 nohup gkrellm 2>&1 >/dev/null &
 

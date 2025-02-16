@@ -1,7 +1,7 @@
 NSTALLATION AND CONFIGURATION
 =============================
 
-sudo add-apt-repository universe
+sudo add-apt-repository universe -y
 sudo apt update
 sudo apt install -y unzip wget
 

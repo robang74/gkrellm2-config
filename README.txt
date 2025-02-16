@@ -10,7 +10,7 @@ durl=$repo/archive/refs/heads/main.zip
 
 mkdir -p ~/.gkrellm2
 wget $durl -O ~/Downloads/gkrellm2-config-main.zip
-unzip ~/Downloads/gkrellm2-config-main.zip -d ~/.gkrellm2
+unzip -o ~/Downloads/gkrellm2-config-main.zip -d ~/.gkrellm2
 
 sudo apt install -y $(cat ~/.gkrellm2/thinkpad.lst) 
  XOR
